@@ -1,0 +1,16 @@
+const AppSidebar = () => {
+    return (
+      <div className="">
+        AppSidebar
+      </div>
+    )
+  }
+  
+export default AppSidebar
+
+
+
+<div className="p-4 rounded-lg h-80 bg-primary-foreground">
+                    <div className="dateEvent relative">03.03.2025</div>
+                    <img src="/images/banner.png" alt="Баннер" />
+                  </div>
