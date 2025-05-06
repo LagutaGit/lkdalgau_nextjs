@@ -17,15 +17,7 @@ const Homepage = () => {
           
           <News/>
 
-          <div className="p-4 rounded-lg h-80 bg-primary-foreground">
-              
-          </div>
-          <div className="p-4 rounded-lg h-80 bg-primary-foreground">
-              
-          </div>
-          <div className="p-4 rounded-lg h-80 bg-primary-foreground">
-              
-          </div>
+          
           
         </div>
 

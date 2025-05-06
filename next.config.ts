@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
 };
 module.exports = {
   images: {
-    domains: ["dalgau.ru"], // Разрешаем изображения с этого домена
+    domains: ["dalgau.ru", "avatars.mds.yandex.net"], // Разрешаем изображения с этого домена
   },
 };
 
