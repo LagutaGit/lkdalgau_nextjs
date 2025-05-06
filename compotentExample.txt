@@ -14,3 +14,26 @@ export default AppSidebar
                     <div className="dateEvent relative">03.03.2025</div>
                     <img src="/images/banner.png" alt="Баннер" />
                   </div>
+
+
+
+  <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                    <Button variant="outline" className="bg-green-800 text-white">150 Баллов</Button>
+                                </AlertDialogTrigger>
+                                <AlertDialogContent>
+                                    <AlertDialogHeader className="py-5">
+                                        <AlertDialogTitle>Что такое баллы?</AlertDialogTitle>
+                                            <AlertDialogDescription>
+                                            Баллы — это сумма значений, набранных при поступлении.
+                                            </AlertDialogDescription>
+                                        </AlertDialogHeader>
+                                            <AlertDialogFooter>
+                                            <AlertDialogCancel>Отмена</AlertDialogCancel>
+                                            <AlertDialogAction className="bg-green-800 text-white">Продолжить</AlertDialogAction>
+                                    </AlertDialogFooter>
+                                </AlertDialogContent>
+                            </AlertDialog>
+
+
+                            

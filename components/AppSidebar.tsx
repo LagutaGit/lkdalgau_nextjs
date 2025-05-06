@@ -78,18 +78,11 @@ const AppSidebar = () => {
             <SidebarMenu>
                 <SidebarMenuItem>
                     <DropdownMenu>
-                        <DropdownMenuTrigger asChild className="py-5">
-                            <SidebarMenuButton className="flex" >
+                        <DropdownMenuTrigger asChild className="pb-0">
+                            <SidebarMenuButton >
                                 <User2/> Иван Иванов <ChevronUp className="ml-auto"/>
-                                <button className="bg-green-800 text-white m-1 p-1 rounded ">150 Баллов</button>
-                                
                             </SidebarMenuButton>
-                           
-                            
                         </DropdownMenuTrigger>
-                      
-                            
-                            
                         <DropdownMenuContent align="end">
                             <DropdownMenuItem>
                                 Аккаунт

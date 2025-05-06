@@ -22,8 +22,8 @@ export default function BannerPage() {
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem key={index}>
-                <Card className="">
-                  <CardContent className="flex items-center justify-center rounded-lg relative">
+                <Card className="p-0 backdrop-sepia-0">
+                  <CardContent className=" flex items-center justify-center rounded-lg relative px-0">
                     <div className="cards relative">
                         <div className="card">
                         <div className="dateEvent absolute top-2 left-2 text-sm font-medium text-white">
