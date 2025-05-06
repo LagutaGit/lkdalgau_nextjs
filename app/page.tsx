@@ -1,5 +1,6 @@
 import BannerPage from "@/components/BannersPage";
 import Events from "@/components/Events";
+import News from "@/components/News";
 import { Button } from "@/components/ui/button"
 
 import { CirclePlus } from "lucide-react"
@@ -13,7 +14,9 @@ const Homepage = () => {
           <BannerPage/>
 
           <Events/>
-    
+          
+          <News/>
+
           <div className="p-4 rounded-lg h-80 bg-primary-foreground">
               
           </div>

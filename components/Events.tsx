@@ -15,7 +15,7 @@ const Events = () => {
                     Показать все
                 </Button>
             </div>
-            <div className="events-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-4 pt-5">
+            <div className="events-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 pt-5">
                 <Card className="p-1.5 border-green-900">
                     <CardHeader className="p-0 rounded-2xl ">
                         <img src="https://dalgau.ru/upload/iblock/780/vqlao9esmog4kaxft2cpmg92x6w3qu7f/WhatsApp_Image_2025_04_30_at_14.11.02_1_.jpeg"/>
@@ -29,9 +29,12 @@ const Events = () => {
                         </div>
                     </CardContent>
                     <CardFooter className="flex justify-center">
-                        <Button className="bg-green-800 text-white cursor-pointer">
-                            Подать заявку
-                        </Button>
+                            <Link target="_blank" href="/">
+                                <Button className="bg-green-800 text-white cursor-pointer">
+                                    Подать заявку
+                                </Button>
+                            </Link>
+                        
                     </CardFooter>
                      
                 </Card>
