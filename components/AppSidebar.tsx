@@ -10,17 +10,17 @@ import { AlertDialogContent } from "@radix-ui/react-alert-dialog"
 const items = [
     {
         title: "Мероприятия",
-        url: "/",
+        url: "/events",
         icon: Home,
     },
     {
         title: "Портфолио",
-        url: "/",
+        url: "/portfolio",
         icon: Inbox,
     },
     {
         title: "Календарь",
-        url: "/",
+        url: "/calendar",
         icon: Calendar,
     },
     {

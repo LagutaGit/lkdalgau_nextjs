@@ -4,6 +4,7 @@ import News from "@/components/News";
 import { Button } from "@/components/ui/button"
 
 import { CirclePlus } from "lucide-react"
+import Link from "next/link";
 
 
 const Homepage = () => {
@@ -17,7 +18,7 @@ const Homepage = () => {
           
           <News/>
 
-          
+          <Link href="/">lk</Link>
           
         </div>
 
