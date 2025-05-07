@@ -22,7 +22,7 @@ const Events = () => {
                 <Link href="/news_inner" className="events-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 pt-5">
                     <Card className="p-1.5 border-green-900 hover:shadow-2xl/30 transition-shadow">
                         <CardHeader className="p-0 rounded-2xl ">
-                            <Image width={470} height={350} alt={'ivent-image'} className="rounded-sm" src="https://dalgau.ru/upload/iblock/780/vqlao9esmog4kaxft2cpmg92x6w3qu7f/WhatsApp_Image_2025_04_30_at_14.11.02_1_.jpeg"/>
+                            <Image width={1200} height={350} alt={'ivent-image'} className="rounded-sm" src="https://dalgau.ru/upload/iblock/780/vqlao9esmog4kaxft2cpmg92x6w3qu7f/WhatsApp_Image_2025_04_30_at_14.11.02_1_.jpeg"/>
                         </CardHeader>
                         <CardContent className="flex flex-col items-end">
                             <div className="date-card text-green-900 font-bold">
