@@ -1,3 +1,9 @@
+import PersonalProfile from "@/components/PersonalProfile";
+
 export default function Lk(){
-    return <h1>Привет</h1>
+    return (
+    <div>
+        <PersonalProfile/>
+    </div>
+    )
 }

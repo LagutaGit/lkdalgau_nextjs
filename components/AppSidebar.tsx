@@ -1,6 +1,6 @@
 import Link  from "next/link" 
 import Image  from "next/image" 
-import { Calendar, ChevronUp, Home, Inbox, Search, Settings, User2 } from "lucide-react"
+import { Calendar, ChevronUp, Home, User, Inbox, Search, Settings, User2 } from "lucide-react"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "./ui/sidebar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "./ui/alert-dialog"
@@ -8,6 +8,11 @@ import { Button } from "./ui/button"
 import { AlertDialogContent } from "@radix-ui/react-alert-dialog"
 
 const items = [
+    {
+        title: "Личный кабинет",
+        url: "/lk",
+        icon: User,
+    },
     {
         title: "Мероприятия",
         url: "/events",

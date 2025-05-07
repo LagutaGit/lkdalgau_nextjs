@@ -55,7 +55,7 @@ export default function BannerPage() {
                       <Image
                         src={image}
                         alt={`Slide ${index + 1}`}
-                        className="w-full  object-cover"
+                        className="w-full rounded-sm object-cover"
                         width={1200}
                         height={400}
                       />

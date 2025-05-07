@@ -8,7 +8,7 @@ const News = () => {
         <h2 className="text-5xl text-green-900">Новости</h2>
         <div className="events-inner ">
             <div className="news-wrapper ">
-                <div className="news lg:flex lg:justify-between lg:h-60 lg:my-5  ">
+                <div className="news lg:flex lg:justify-between lg:h-60 my-5  hover:shadow-2xl/30 transition-shadow rounded-2xl">
                     <Image
                         src={"/projects/banner-1.jpg"}
                         alt={'news'}
@@ -31,7 +31,7 @@ const News = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="news lg:flex lg:justify-between lg:h-60 lg:my-5  ">
+                <div className="news lg:flex lg:justify-between lg:h-60 my-5  hover:shadow-2xl/30 transition-shadow rounded-2xl">
                     <Image
                         src={"/projects/banner-1.jpg"}
                         alt={'news'}
@@ -54,7 +54,7 @@ const News = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="news lg:flex lg:justify-between lg:h-60 lg:my-5  ">
+                <div className="news lg:flex lg:justify-between lg:h-60 my-5  hover:shadow-2xl/30 transition-shadow rounded-2xl">
                     <Image
                         src={"/projects/banner-1.jpg"}
                         alt={'news'}
@@ -77,7 +77,7 @@ const News = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="news lg:flex lg:justify-between lg:h-60 lg:my-5  ">
+                <div className="news lg:flex lg:justify-between lg:h-60 my-5  hover:shadow-2xl/30 transition-shadow rounded-2xl">
                     <Image
                         src={"/projects/banner-1.jpg"}
                         alt={'news'}
@@ -100,6 +100,7 @@ const News = () => {
                         </Link>
                     </div>
                 </div>
+                
                 
 
                 
