@@ -3,15 +3,24 @@
 import { useState } from 'react';
 import { Pencil } from 'lucide-react';
 
-// Интерфейс для данных пользователя
-interface InterestsUser {
-  interests: string; // Поддерживает строку, например, "Чтение, Спорт, Программирование"
+// Интерфейс для данных пользователя (должен совпадать с Lk.tsx)
+interface User {
+  points: string;
+  age: string;
+  city: string;
+  phone: string;
+  email: string;
+  education: string;
+  school: string;
+  grade: string;
+  fullName: string;
+  interests: string;
 }
 
 // Интерфейс для пропсов компонента
 interface InterestsUserProps {
-  user: InterestsUser;
-  setUser: React.Dispatch<React.SetStateAction<InterestsUser>>;
+  user: User;
+  setUser: React.Dispatch<React.SetStateAction<User>>;
 }
 
 const InterestsUser = ({ user, setUser }: InterestsUserProps) => {

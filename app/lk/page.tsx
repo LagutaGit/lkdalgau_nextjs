@@ -4,6 +4,8 @@ import { useState } from 'react';
 import ActivityProfileUser from "@/components/ActivityProfileUser";
 import PersonalProfile from "@/components/PersonalProfile";
 import InterestsUser from '@/components/InterestsUser';
+import HistoryBalls from '@/components/HistoryBalls';
+import EventsInnerLk from '@/components/EventsInnerLk';
 
 interface User {
   points: string;
@@ -52,6 +54,8 @@ export default function Lk() {
       <PersonalProfile user={user} setUser={setUser} />
       <ActivityProfileUser user={user} />
       <InterestsUser user={user} setUser={setUser}/>
+      <HistoryBalls />
+      <EventsInnerLk />
     </div>
   );
 }

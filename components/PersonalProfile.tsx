@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react'; // Добавлен импорт useState
+import { useState } from 'react';
 import {
   CalendarDays,
   Camera,
@@ -17,7 +17,10 @@ import {
 import Image from 'next/image';
 import { Button } from './ui/button';
 
-// Интерфейс для пропсов
+// Импорт React для явной поддержки JSX
+import React from 'react';
+
+// Интерфейс для пользователя
 interface User {
   points: string;
   age: string;
@@ -37,7 +40,7 @@ interface PersonalProfileProps {
 }
 
 // Компонент для управления видимостью текста
-const ToggleVisibility = ({ label, children }: { label: JSX.Element; children: string }) => {
+const ToggleVisibility = ({ label, children }: { label: React.ReactElement; children: string }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
@@ -63,7 +66,6 @@ const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
     <div className="w-full">
       <h2 className="text-5xl text-green-900">Личный профиль</h2>
       <div className="images-profile lg:flex pt-5 z-10 gap-4">
-        {/* Левый блок */}
         <div
           className="block-left-img mb-5 border-solid border-green-900 relative flex-1 h-[250px] overflow-hidden rounded-2xl"
         >
@@ -81,7 +83,6 @@ const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
           />
         </div>
 
-        {/* Правый блок */}
         <div
           className="block-right-img border-solid border-green-900 relative flex-4 h-[250px] overflow-hidden rounded-2xl"
         >
@@ -115,37 +116,30 @@ const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
           {user.points}
         </Button>
 
-        {/* Возраст */}
         <ToggleVisibility label={<><CalendarDays className="pr-2" /></>}>
           {user.age}
         </ToggleVisibility>
 
-        {/* Город */}
         <ToggleVisibility label={<><Map className="pr-2" /></>}>
           {user.city}
         </ToggleVisibility>
 
-        {/* Телефон */}
         <ToggleVisibility label={<><Phone className="pr-2" /></>}>
           {user.phone}
         </ToggleVisibility>
 
-        {/* Email */}
         <ToggleVisibility label={<><Mail className="pr-2" /></>}>
           {user.email}
         </ToggleVisibility>
 
-        {/* Образование */}
         <ToggleVisibility label={<><GraduationCap className="pr-2" /></>}>
           {user.education}
         </ToggleVisibility>
 
-        {/* Учебное заведение */}
         <ToggleVisibility label={<><School className="pr-2" /></>}>
           {user.school}
         </ToggleVisibility>
 
-        {/* Класс */}
         <ToggleVisibility label={<><Shapes className="pr-2" /></>}>
           {user.grade}
         </ToggleVisibility>
