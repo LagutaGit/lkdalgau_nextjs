@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, React } from 'react';
 import ActivityProfileUser from "@/components/ActivityProfileUser";
 import PersonalProfile from "@/components/PersonalProfile";
 import InterestsUser from '@/components/InterestsUser';
 import HistoryBalls from '@/components/HistoryBalls';
-import EventsInnerLk from '@/components/EventsInnerLk';
+import EventsInnerLk, { EventItem } from '@/components/EventsInnerLk';
 
 interface User {
   points: string;
@@ -31,31 +31,41 @@ export default function Lk() {
     school: 'Школа',
     grade: '9Б',
     fullName: 'Иванова Ольга Ивановна',
-    /*Обратить внимание*/
-    interests: 'Люблю',
+    interests: 'Чтение, Спорт, Программирование',
   });
 
-  // В будущем здесь можно добавить useEffect для загрузки данных с бэкенда
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch('/api/user');
-  //       const data = await response.json();
-  //       setUser(prev => ({ ...prev, ...data }));
-  //     } catch (error) {
-  //       console.error('Ошибка загрузки данных:', error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+  const [events, setEvents] = useState<EventItem[]>([]);
+
+  //useEffect(() => {
+  //  const fetchData = async () => {
+  //    try {
+  //      const response = await fetch('/api/user');
+  //      const data = await response.json();
+  //      setUser(prev => ({ ...prev, ...data }));
+  //    } catch (error) {
+  //      console.error('Ошибка загрузки данных:', error);
+  //    }
+  //  };
+  //  const fetchEvents = async () => { 
+  //    try {
+  //      const response = await fetch('/api/events');
+  //      const data = await response.json();
+  //      setEvents(data);
+  //    } catch (error) {
+  //      console.error('Ошибка загрузки мероприятий:', error);
+  //    }
+  //  };
+  //  fetchData();
+  //  fetchEvents();
+  //}, []);
 
   return (
     <div>
       <PersonalProfile user={user} setUser={setUser} />
       <ActivityProfileUser user={user} />
-      <InterestsUser user={user} setUser={setUser}/>
+      <InterestsUser user={user} setUser={setUser} />
       <HistoryBalls />
-      <EventsInnerLk />
+      <EventsInnerLk events={events} />
     </div>
   );
 }

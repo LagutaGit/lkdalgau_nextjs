@@ -16,8 +16,6 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from './ui/button';
-
-// Импорт React для явной поддержки JSX
 import React from 'react';
 
 // Интерфейс для пользователя
@@ -66,9 +64,7 @@ const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
     <div className="w-full">
       <h2 className="text-5xl text-green-900">Личный профиль</h2>
       <div className="images-profile lg:flex pt-5 z-10 gap-4">
-        <div
-          className="block-left-img mb-5 border-solid border-green-900 relative flex-1 h-[250px] overflow-hidden rounded-2xl"
-        >
+        <div className="block-left-img mb-5 border-solid border-green-900 relative flex-1 h-[250px] overflow-hidden rounded-2xl">
           <div className="repair-image-camera absolute top-2 right-2 cursor-pointer rounded-full shadow-md z-10">
             <button onClick={alerttt} className="p-1">
               <Camera color="#2A632C" size={24} />
@@ -76,30 +72,26 @@ const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
           </div>
           <Image
             src="/projects/banner-1.jpg"
-            alt=""
+            alt="Левое изображение профиля"
             fill
-            style={{ objectFit: 'cover' }}
-            className="rounded-2xl"
+            className="rounded-2xl object-cover" // Перенесли object-fit в className
           />
         </div>
 
-        <div
-          className="block-right-img border-solid border-green-900 relative flex-4 h-[250px] overflow-hidden rounded-2xl"
-        >
+        <div className="block-right-img border-solid border-green-900 relative flex-4 h-[250px] overflow-hidden rounded-2xl">
           <div className="repair-image-camera absolute top-2 right-2 cursor-pointer rounded-full shadow-md z-10">
             <button onClick={alerttt} className="p-1">
               <Camera color="#2A632C" size={24} />
             </button>
           </div>
           <div className="absolute top-2 right-12 z-5">
-            <Image src="./images/schoolUniversity.svg" width={200} height={200} alt="" />
+            <Image src="./images/schoolUniversity.svg" width={200} height={200} alt="Логотип школы" />
           </div>
           <Image
             src="/images/banner.png"
-            alt=""
+            alt="Правое изображение профиля"
             fill
-            style={{ objectFit: 'cover' }}
-            className="rounded-2xl"
+            className="rounded-2xl object-cover" // Перенесли object-fit в className
           />
         </div>
       </div>

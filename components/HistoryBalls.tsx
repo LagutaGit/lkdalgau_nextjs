@@ -54,7 +54,7 @@ const HistoryBalls = ({ items = [] }: HistoryBallsProps) => {
     <div className="pt-5">
       <h2 className="text-4xl text-green-900">История зачисления баллов</h2>
       <div className="my-5 overflow-x-auto">
-        <table className="min-w-full bg-white border border-green-900 rounded-lg shadow-md">
+        <table className="min-w-full border border-green-900 rounded-lg shadow-md">
           <thead>
             <tr className="bg-green-900 text-white">
               <th className="py-2 px-4 ">Мероприятие</th>
