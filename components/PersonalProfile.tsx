@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from './ui/button';
-import React from 'react';
 
 // Интерфейс для пользователя
 interface User {
@@ -45,10 +44,10 @@ const ToggleVisibility = ({ label, children }: { label: React.ReactElement; chil
     <div className="flex items-center gap-2">
       {label && <span className="mr-2">{label}</span>}
       <p>{isVisible ? children : '*****'}</p>
-      <button onClick={() => setIsVisible(true)} className="focus:outline-none">
+      <button onClick={() => setIsVisible(true)} className="focus:outline-none" aria-label="Показать текст">
         <Eye size={18} />
       </button>
-      <button onClick={() => setIsVisible(false)} className="focus:outline-none">
+      <button onClick={() => setIsVisible(false)} className="focus:outline-none" aria-label="Скрыть текст">
         <EyeClosed size={18} />
       </button>
     </div>
@@ -74,24 +73,24 @@ const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
             src="/projects/banner-1.jpg"
             alt="Левое изображение профиля"
             fill
-            className="rounded-2xl object-cover" // Перенесли object-fit в className
+            className="rounded-2xl object-cover"
           />
         </div>
 
-        <div className="block-right-img border-solid border-green-900 relative flex-4 h-[250px] overflow-hidden rounded-2xl">
+        <div className="block-right-img border-solid border-green-900 relative flex-[4] h-[250px] overflow-hidden rounded-2xl">
           <div className="repair-image-camera absolute top-2 right-2 cursor-pointer rounded-full shadow-md z-10">
             <button onClick={alerttt} className="p-1">
               <Camera color="#2A632C" size={24} />
             </button>
           </div>
           <div className="absolute top-2 right-12 z-5">
-            <Image src="./images/schoolUniversity.svg" width={200} height={200} alt="Логотип школы" />
+            <Image src="/images/schoolUniversity.svg" width={200} height={200} alt="Логотип школы" />
           </div>
           <Image
             src="/images/banner.png"
             alt="Правое изображение профиля"
             fill
-            className="rounded-2xl object-cover" // Перенесли object-fit в className
+            className="rounded-2xl object-cover"
           />
         </div>
       </div>
@@ -108,31 +107,31 @@ const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
           {user.points} Б
         </Button>
 
-        <ToggleVisibility label={<><CalendarDays className="pr-2" /></>}>
+        <ToggleVisibility label={<CalendarDays className="pr-2" />}>
           {user.age}
         </ToggleVisibility>
 
-        <ToggleVisibility label={<><Map className="pr-2" /></>}>
+        <ToggleVisibility label={<Map className="pr-2" />}>
           {user.city}
         </ToggleVisibility>
 
-        <ToggleVisibility label={<><Phone className="pr-2" /></>}>
+        <ToggleVisibility label={<Phone className="pr-2" />}>
           {user.phone}
         </ToggleVisibility>
 
-        <ToggleVisibility label={<><Mail className="pr-2" /></>}>
+        <ToggleVisibility label={<Mail className="pr-2" />}>
           {user.email}
         </ToggleVisibility>
 
-        <ToggleVisibility label={<><GraduationCap className="pr-2" /></>}>
+        <ToggleVisibility label={<GraduationCap className="pr-2" />}>
           {user.education}
         </ToggleVisibility>
 
-        <ToggleVisibility label={<><School className="pr-2" /></>}>
+        <ToggleVisibility label={<School className="pr-2" />}>
           {user.school}
         </ToggleVisibility>
 
-        <ToggleVisibility label={<><Shapes className="pr-2" /></>}>
+        <ToggleVisibility label={<Shapes className="pr-2" />}>
           {user.grade}
         </ToggleVisibility>
       </div>

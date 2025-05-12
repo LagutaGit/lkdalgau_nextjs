@@ -12,134 +12,39 @@ export interface EventItem {
   date: string;
   imageUrl: string;
 }
-// Интерфейс для пропсов компонента
+
 interface EventsInnerLkProps {
-  events?: EventItem[]; // Данные будут подтягиваться с бэкенда
+  events?: EventItem[];
 }
 
 const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
-  // Заглушка данных (будет заменена на данные с бэкенда)
   const mockEvents: EventItem[] = [
-    {
-      id: 1,
-      title: 'Название мероприятия',
-      date: '14.06.2023',
-      imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-    },
-    {
-      id: 2,
-      title: 'Второе мероприятие',
-      date: '15.07.2023',
-      imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-    },
-    {
-      id: 3,
-      title: 'Третье мероприятие',
-      date: '15.08.2025',
-      imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-    },
-    {
-      id: 4,
-      title: 'Четвертое мероприятие',
-      date: '15.07.2023',
-      imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-    },
-    {
-      id: 5,
-      title: 'Пятое мероприятие',
-      date: '15.07.2023',
-      imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-    },
-    {
-        id: 6,
-        title: 'Название мероприятия',
-        date: '14.06.2023',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
-      {
-        id: 7,
-        title: 'Второе мероприятие',
-        date: '15.07.2023',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
-      {
-        id: 8,
-        title: 'Третье мероприятие',
-        date: '15.08.2025',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
-      {
-        id: 9,
-        title: 'Четвертое мероприятие',
-        date: '15.07.2023',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
-      {
-        id: 10,
-        title: 'Пятое мероприятие',
-        date: '15.07.2023',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
-      {
-        id: 11,
-        title: 'Название мероприятия',
-        date: '14.06.2023',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
-      {
-        id: 12,
-        title: 'Второе мероприятие',
-        date: '15.07.2023',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
-      {
-        id: 13,
-        title: 'Третье мероприятие',
-        date: '15.08.2025',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
-      {
-        id: 14,
-        title: 'Четвертое мероприятие',
-        date: '15.07.2023',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
-      {
-        id: 15,
-        title: 'Пятое мероприятие',
-        date: '15.07.2023',
-        imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG',
-      },
+    { id: 1, title: 'Название 1', date: '2023-06-14', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
+    { id: 2, title: 'Название 2', date: '2023-07-15', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
+    { id: 3, title: 'Название 3', date: '2025-08-15', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
+    { id: 4, title: 'Название 4', date: '2023-07-15', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
+    { id: 5, title: 'Название 5', date: '2023-07-15', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
   ];
 
-  // Состояние для фильтра
   const [filter, setFilter] = useState<'all' | 'participated' | 'past'>('all');
+  const [participatedEvents] = useState<number[]>([1, 4]);
+  const [visibleCount, setVisibleCount] = useState(6);
 
-  // Пример состояния участия пользователя (будет подтягиваться с бэкенда)
-  const [participatedEvents] = useState<number[]>([1, 4]); // ID мероприятий, в которых участвовал пользователь
-
-  // Состояние для количества видимых мероприятий (по 6 для 2 строк с 3 столбцами)
-  const [visibleCount, setVisibleCount] = useState(6); // Начальное значение - 2 строки (6 элементов)
-
-  // Используем mockEvents, если events не передан
   const displayEvents = events.length > 0 ? events : mockEvents;
 
-  // Фильтрация мероприятий
   const filteredEvents = displayEvents.filter((event) => {
     const eventDate = new Date(event.date);
     const currentDate = new Date();
-
     if (filter === 'participated') {
       return participatedEvents.includes(event.id);
     } else if (filter === 'past') {
       return eventDate < currentDate;
     }
-    return true; // 'all' показывает все мероприятия
+    return true;
   });
 
-  // Обработка клика "Показать больше"
   const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 5); // Увеличиваем на 2 элемента
+    setVisibleCount((prev) => prev + 2);
   };
 
   return (
@@ -156,7 +61,7 @@ const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
             Участие
           </Button>
           <Button
-            className={`bg-green-900 mb-5  text-white ${filter === 'participated' ? 'bg-green-700' : 'hover:bg-green-700'}`}
+            className={`bg-green-900 mb-5 text-white ${filter === 'participated' ? 'bg-green-700' : 'hover:bg-green-700'}`}
             onClick={() => setFilter('participated')}
             aria-label="Показать мероприятия, в которых участвовал"
           >
@@ -175,14 +80,14 @@ const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
             filteredEvents.slice(0, visibleCount).map((event) => (
               <div
                 key={event.id}
-                className="card-event-lk hover:shadow-2xl bg-white border border-green-900 rounded-lg shadow-md overflow-hidden"
+                className="card-event-lk hover:shadow-2xl border border-green-900 rounded-lg shadow-md overflow-hidden"
               >
                 <div className="relative w-full h-48">
                   <Image
                     src={event.imageUrl}
                     alt={`Изображение мероприятия: ${event.title}`}
                     fill
-                    className="rounded-t-lg object-cover" // Используем className вместо style
+                    className="rounded-t-lg object-cover"
                   />
                 </div>
                 <div className="about-event-lk p-4 flex flex-col gap-2">
@@ -198,12 +103,12 @@ const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
           )}
           {filteredEvents.length > visibleCount && (
             <div className="col-span-full text-center pt-1">
-                <Button
-                    onClick={handleShowMore}
-                    className="bg-green-900 text-white hover:bg-green-700 transition duration-300"
-                    >
-                    Показать еще
-                </Button>
+              <Button
+                onClick={handleShowMore}
+                className="bg-green-900 text-white hover:bg-green-700 transition duration-300"
+              >
+                Показать еще
+              </Button>
             </div>
           )}
         </div>

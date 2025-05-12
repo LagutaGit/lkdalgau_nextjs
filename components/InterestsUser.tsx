@@ -72,13 +72,15 @@ const InterestsUser = ({ user, setUser }: InterestsUserProps) => {
             <div className="flex gap-2">
               <button
                 onClick={handleSave}
-                className="bg-green-800 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors"
+                className="bg-green-800 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors focus:outline-none"
+                aria-label="Сохранить изменения"
               >
                 Сохранить
               </button>
               <button
                 onClick={handleCancel}
-                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors"
+                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors focus:outline-none"
+                aria-label="Отменить редактирование"
               >
                 Отмена
               </button>

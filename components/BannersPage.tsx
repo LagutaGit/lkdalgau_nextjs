@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
@@ -9,24 +8,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 
 export default function BannerPage() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const nextSlide = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
   const images = [
     "https://avatars.mds.yandex.net/i?id=a53955db528d5e40d4064e9ed8a3f53e6473a411-5236397-images-thumbs&n=13",
     "https://avatars.mds.yandex.net/i?id=8a1f6b50b9c5cc7cad95417213ce6fb59b505472-4531115-images-thumbs&n=13",
@@ -34,24 +19,25 @@ export default function BannerPage() {
     "/images/banner.png",
     "https://get.wallhere.com/photo/kitten-muzzle-paws-cute-eyes-fluffy-lie-666356.jpg"
   ];
+
   return (
-    <div className="w-full ">
-      <Carousel className="" 
+    <div className="w-full">
+      <Carousel
         opts={{
-            align: "start",
-            loop: true,
+          align: "start",
+          loop: true,
         }}
       >
         <CarouselContent>
           {images.map((image, index) => (
-              <CarouselItem key={index} className="flex items-center justify-center rounded-lg relative px-0">
-                <div className="">
-                  <Card className="p-1.5">
-                    <CardContent className=" flex p-0 max-h-80 object-cover relative max-w-full">
+            <CarouselItem key={index} className="flex items-center justify-center rounded-lg relative px-0">
+              <div>
+                <Card className="p-1.5">
+                  <CardContent className="flex p-0 max-h-80 object-cover relative max-w-full">
                     <div className="dateEvent bg-green-900 p-1.5 rounded-2xl absolute top-2 left-2 text-sm font-medium text-white">
-                        03.07.2025
-                      </div>
-                      <Link href="/" target="_blank">
+                      03.07.2025
+                    </div>
+                    <Link href="/" target="_blank">
                       <Image
                         src={image}
                         alt={`Slide ${index + 1}`}
@@ -59,47 +45,16 @@ export default function BannerPage() {
                         width={1200}
                         height={400}
                       />
-                      </Link>
-                     
-                     
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-
-
-            {/*{Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}>
-                <Card className="p-0 backdrop-sepia-0">
-                  <CardContent >
-                    <CarouselItem className=" flex items-center justify-center rounded-lg relative px-0">
-                    <div className="cards relative">
-                        <div className="card">
-                        <div className="dateEvent absolute top-2 left-2 text-sm font-medium text-white">
-                        03.07.2025
-                      </div>
-                      <img
-                        src="/images/banner.png"
-                        alt="Баннер" 
-                      />
-                        </div>
-                      
-                    </div>
-                    </CarouselItem>
-                    
+                    </Link>
                   </CardContent>
-                  
                 </Card>
+              </div>
             </CarouselItem>
-          ))}*/}
-            
-                  
+          ))}
         </CarouselContent>
-        <CarouselPrevious className="ml-20"/>
-        <CarouselNext className="mr-20" />
+        <CarouselPrevious className="ml-4 lg:ml-20" aria-label="Предыдущий слайд" />
+        <CarouselNext className="mr-4 lg:mr-20" aria-label="Следующий слайд" />
       </Carousel>
-      
     </div>
-  )
+  );
 }
