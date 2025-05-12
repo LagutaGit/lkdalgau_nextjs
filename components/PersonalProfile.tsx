@@ -28,6 +28,7 @@ interface User {
   school: string;
   grade: string;
   fullName: string;
+  interests: string;
 }
 
 interface PersonalProfileProps {

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import ActivityProfileUser from "@/components/ActivityProfileUser";
 import PersonalProfile from "@/components/PersonalProfile";
+import InterestsUser from '@/components/InterestsUser';
 
 interface User {
   points: string;
@@ -14,6 +15,7 @@ interface User {
   school: string;
   grade: string;
   fullName: string;
+  interests: string;
 }
 
 export default function Lk() {
@@ -27,6 +29,8 @@ export default function Lk() {
     school: 'Школа',
     grade: '9Б',
     fullName: 'Иванова Ольга Ивановна',
+    /*Обратить внимание*/
+    interests: 'Люблю',
   });
 
   // В будущем здесь можно добавить useEffect для загрузки данных с бэкенда
@@ -47,6 +51,7 @@ export default function Lk() {
     <div>
       <PersonalProfile user={user} setUser={setUser} />
       <ActivityProfileUser user={user} />
+      <InterestsUser user={user} setUser={setUser}/>
     </div>
   );
 }
