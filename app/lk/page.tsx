@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, React } from 'react';
+import { useState, useEffect } from 'react'; // Убрали лишний импорт React
 import ActivityProfileUser from "@/components/ActivityProfileUser";
 import PersonalProfile from "@/components/PersonalProfile";
 import InterestsUser from '@/components/InterestsUser';
@@ -22,7 +22,7 @@ interface User {
 
 export default function Lk() {
   const [user, setUser] = useState<User>({
-    points: '150 Б',
+    points: '150',
     age: '15 лет',
     city: 'Благовещенск',
     phone: '8(800)5553535',
@@ -46,7 +46,7 @@ export default function Lk() {
   //      console.error('Ошибка загрузки данных:', error);
   //    }
   //  };
-  //  const fetchEvents = async () => { 
+  //  const fetchEvents = async () => {
   //    try {
   //      const response = await fetch('/api/events');
   //      const data = await response.json();
@@ -60,12 +60,12 @@ export default function Lk() {
   //}, []);
 
   return (
-    <div>
+    <>
       <PersonalProfile user={user} setUser={setUser} />
       <ActivityProfileUser user={user} />
       <InterestsUser user={user} setUser={setUser} />
       <HistoryBalls />
       <EventsInnerLk events={events} />
-    </div>
+    </>
   );
 }

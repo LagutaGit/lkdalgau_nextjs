@@ -105,7 +105,7 @@ const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
 
       <div className="informarions lg:flex justify-between pt-5 items-center flex-wrap gap-4">
         <Button onClick={alerttt} className="bg-green-800 text-white cursor-pointer">
-          {user.points}
+          {user.points} Б
         </Button>
 
         <ToggleVisibility label={<><CalendarDays className="pr-2" /></>}>

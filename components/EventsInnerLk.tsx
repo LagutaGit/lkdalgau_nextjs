@@ -5,14 +5,13 @@ import { Button } from './ui/button';
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-// Интерфейс для данных мероприятия
-interface EventItem {
+// Экспортируем интерфейс
+export interface EventItem {
   id: number;
   title: string;
   date: string;
   imageUrl: string;
 }
-
 // Интерфейс для пропсов компонента
 interface EventsInnerLkProps {
   events?: EventItem[]; // Данные будут подтягиваться с бэкенда
@@ -147,17 +146,17 @@ const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
     <div className="pt-5">
       <h2 className="text-4xl text-green-900">Мероприятия</h2>
       <div className="events-wrapper mb-5">
-        <div className="buttons-events-lk pt-5 flex gap-4">
+        <div className="buttons-events-lk pt-5 lg:flex gap-4">
           <Button
             variant="outline"
-            className={`border-green-900 text-green-900 ${filter === 'all' ? 'bg-green-100' : 'hover:bg-green-100'}`}
+            className={`border-green-900 mr-1 text-green-900 ${filter === 'all' ? 'bg-green-100' : 'hover:bg-green-100'}`}
             onClick={() => setFilter('all')}
             aria-label="Показать все мероприятия"
           >
             Участие
           </Button>
           <Button
-            className={`bg-green-900 text-white ${filter === 'participated' ? 'bg-green-700' : 'hover:bg-green-700'}`}
+            className={`bg-green-900 mb-5  text-white ${filter === 'participated' ? 'bg-green-700' : 'hover:bg-green-700'}`}
             onClick={() => setFilter('participated')}
             aria-label="Показать мероприятия, в которых участвовал"
           >
