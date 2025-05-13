@@ -8,6 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 
 // Интерфейс для мероприятия
 interface Event {
+  id: number;
   date: Date;
   title: string;
   description: string;
@@ -17,28 +18,12 @@ const CalendarLk = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const router = useRouter();
 
-  // Список мероприятий (mock data)
+  // Список мероприятий с ID (mock data)
   const events: Event[] = [
-    {
-      date: new Date('2025-05-14'),
-      title: 'Мероприятие 1',
-      description: 'Спортивный марафон в Благовещенске',
-    },
-    {
-      date: new Date('2025-05-20'),
-      title: 'Мероприятие 2',
-      description: 'Тренинг по программированию',
-    },
-    {
-      date: new Date('2025-06-01'),
-      title: 'Мероприятие 3',
-      description: 'Школьный фестиваль',
-    },
-    {
-      date: new Date('2025-08-01'),
-      title: 'Мероприятие 4',
-      description: 'Школьный фестиваль',
-    },
+    { id: 1, date: new Date('2025-05-14'), title: 'Мероприятие 1', description: 'Спортивный марафон в Благовещенске' },
+    { id: 2, date: new Date('2025-05-20'), title: 'Мероприятие 2', description: 'Тренинг по программированию' },
+    { id: 3, date: new Date('2025-06-01'), title: 'Мероприятие 3', description: 'Школьный фестиваль' },
+    { id: 4, date: new Date('2025-08-01'), title: 'Мероприятие 4', description: 'Школьный фестиваль' },
   ];
 
   // Проверка, есть ли мероприятие на дату
@@ -51,10 +36,13 @@ const CalendarLk = () => {
     return events.find((event) => event.date.toDateString() === date.toDateString());
   };
 
-  // Обработка перехода на страницу мероприятия
+  // Обработка перехода на страницу мероприятия по ID
   const handleNavigate = (date: Date) => {
-    setSelectedDate(date);
-    router.push(`/event/${date.toISOString().split('T')[0]}`);
+    const event = getEvent(date);
+    if (event) {
+      setSelectedDate(date);
+      router.push(`/event/${event.id}`);
+    }
   };
 
   // Обработка нажатия клавиш для доступности

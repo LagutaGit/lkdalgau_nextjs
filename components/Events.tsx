@@ -43,7 +43,7 @@ const Events = () => {
                 <div className="date-card text-green-900 font-bold">
                   <p>{event.date}</p>
                 </div>
-                <Link href="/news_inner" className="text cursor-pointer hover:underline">
+                <Link href={`/event/${event.id}`} className="text cursor-pointer hover:underline">
                   {event.title}
                 </Link>
               </CardContent>

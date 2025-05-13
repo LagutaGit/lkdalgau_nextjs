@@ -25,11 +25,7 @@ const items = [
     url: "/calendar",
     icon: Calendar,
   },
-  {
-    title: "Поиск",
-    url: "/search",
-    icon: Search,
-  },
+
   {
     title: "Настройки",
     url: "/settings",

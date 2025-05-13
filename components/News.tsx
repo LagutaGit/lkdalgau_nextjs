@@ -1,42 +1,19 @@
-import Image from "next/image"
-import { Button } from "./ui/button"
-import Link from "next/link"
+import Image from "next/image";
+import { Button } from "./ui/button";
+import Link from "next/link";
+import { newsData } from "@/data/newsData";
 
 const News = () => {
-  const newsData = [
-    {
-      id: 1,
-      date: "06.05.2025",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium facilis cumque nobis nemo delectus officia id odio error rerum atque eius est distinctio, earum, fugiat quo, reprehenderit laboriosam harum recusandae? lorem",
-      imageUrl: "/projects/banner-1.jpg",
-    },
-    {
-      id: 2,
-      date: "06.05.2025",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium facilis cumque nobis nemo delectus officia id odio error rerum atque eius est distinctio, earum, fugiat quo, reprehenderit laboriosam harum recusandae? lorem",
-      imageUrl: "/projects/banner-1.jpg",
-    },
-    {
-      id: 3,
-      date: "06.05.2025",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium facilis cumque nobis nemo delectus officia id odio error rerum atque eius est distinctio, earum, fugiat quo, reprehenderit laboriosam harum recusandae? lorem",
-      imageUrl: "/projects/banner-1.jpg",
-    },
-    {
-      id: 4,
-      date: "06.05.2025",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium facilis cumque nobis nemo delectus officia id odio error rerum atque eius est distinctio, earum, fugiat quo, reprehenderit laboriosam harum recusandae? lorem",
-      imageUrl: "/projects/banner-1.jpg",
-    },
-  ];
-
   return (
     <div className="pt-5">
       <h2 className="text-5xl text-green-900">Новости</h2>
       <div className="events-inner">
         <div className="news-wrapper">
           {newsData.map((news) => (
-            <div key={news.id} className="news lg:flex lg:justify-between lg:h-60 my-5 hover:shadow-2xl/30 transition-shadow rounded-2xl">
+            <div
+              key={news.id}
+              className="news lg:flex lg:h-60 my-5 hover:shadow-2xl/30 transition-shadow rounded-2xl"
+            >
               <Image
                 src={news.imageUrl}
                 alt="Новость"
@@ -45,14 +22,13 @@ const News = () => {
                 height={400}
               />
               <div className="news-text lg:pl-4 flex flex-col justify-between">
-                <div className="date-news pt-1">
-                  {news.date}
-                </div>
-                <div className="text-news line-clamp-3 mt-2">
-                  {news.text}
-                </div>
-                <Link target="_blank" href="/">
-                  <Button className="bg-green-800 text-white cursor-pointer mt-2" aria-label="Подать заявку на новость">
+                <div className="date-news pt-1">{news.date}</div>
+                <div className="text-news line-clamp-3 mt-2">{news.text}</div>
+                <Link href={`/event/news/${news.id}`}>
+                  <Button
+                    className="bg-green-800 text-white cursor-pointer mt-2"
+                    aria-label="Подать заявку на новость"
+                  >
                     Подать заявку
                   </Button>
                 </Link>
