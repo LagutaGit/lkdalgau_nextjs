@@ -2,6 +2,7 @@
 
 import { Calendar } from './ui/calendar';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 // Интерфейс для мероприятия
@@ -13,6 +14,7 @@ interface Event {
 
 const CalendarLk = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
+  const router = useRouter();
 
   // Список мероприятий (mock data)
   const events: Event[] = [
@@ -41,6 +43,9 @@ const CalendarLk = () => {
   // Обработка выбора даты
   const handleDateSelect = (date: Date | undefined) => {
     setSelectedDate(date);
+    if (date && hasEvent(date)) {
+      router.push(`/event/${date.toISOString().split('T')[0]}`);
+    }
   };
 
   return (
@@ -49,7 +54,7 @@ const CalendarLk = () => {
       <div className="pt-5">
         <Calendar
           mode="single"
-          numberOfMonths={5}
+          numberOfMonths={10}
           selected={selectedDate}
           onSelect={handleDateSelect}
           className="w-full min-w-[300px] max-w-full rounded-lg shadow-md border border-green-900 p-2 sm:p-4 md:p-6"
@@ -64,16 +69,6 @@ const CalendarLk = () => {
             },
           }}
         />
-        {selectedDate && hasEvent(selectedDate) && (
-          <div className="mt-4 mr-5">
-            <Link
-              href={`/event/${selectedDate.toISOString().split('T')[0]}`}
-              className="text-green-900 hover:text-green-700 underline text-lg sm:text-xl"
-            >
-              Перейти к мероприятию на {selectedDate.toLocaleDateString()}
-            </Link>
-          </div>
-        )}
       </div>
     </div>
   );
