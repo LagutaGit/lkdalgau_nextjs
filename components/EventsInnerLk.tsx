@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Button } from './ui/button';
-import React, { useState } from 'react';
-import Link from 'next/link';
+import Image from "next/image";
+import { Button } from "./ui/button";
+import React, { useState } from "react";
+import Link from "next/link";
 
 // Экспортируем интерфейс
 export interface EventItem {
@@ -19,14 +19,14 @@ interface EventsInnerLkProps {
 
 const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
   const mockEvents: EventItem[] = [
-    { id: 1, title: 'Название 1', date: '2023-06-14', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
-    { id: 2, title: 'Название 2', date: '2023-07-15', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
-    { id: 3, title: 'Название 3', date: '2025-08-15', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
-    { id: 4, title: 'Название 4', date: '2023-07-15', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
-    { id: 5, title: 'Название 5', date: '2023-07-15', imageUrl: 'https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG' },
+    { id: 1, title: "Название 1", date: "2023-06-14", imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG" },
+    { id: 2, title: "Название 2", date: "2023-07-15", imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG" },
+    { id: 3, title: "Название 3", date: "2025-08-15", imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG" },
+    { id: 4, title: "Название 4", date: "2023-07-15", imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG" },
+    { id: 5, title: "Название 5", date: "2023-07-15", imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG" },
   ];
 
-  const [filter, setFilter] = useState<'all' | 'participated' | 'past'>('all');
+  const [filter, setFilter] = useState<"all" | "participated" | "past">("all");
   const [participatedEvents] = useState<number[]>([1, 4]);
   const [visibleCount, setVisibleCount] = useState(6);
 
@@ -35,9 +35,9 @@ const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
   const filteredEvents = displayEvents.filter((event) => {
     const eventDate = new Date(event.date);
     const currentDate = new Date();
-    if (filter === 'participated') {
+    if (filter === "participated") {
       return participatedEvents.includes(event.id);
-    } else if (filter === 'past') {
+    } else if (filter === "past") {
       return eventDate < currentDate;
     }
     return true;
@@ -54,22 +54,22 @@ const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
         <div className="buttons-events-lk pt-5 lg:flex gap-4">
           <Button
             variant="outline"
-            className={`border-green-900 mr-1 text-green-900 ${filter === 'all' ? 'bg-green-100' : 'hover:bg-green-100'}`}
-            onClick={() => setFilter('all')}
+            className={`border-green-900 mr-1 text-green-900 ${filter === "all" ? "bg-green-100" : "hover:bg-green-100"}`}
+            onClick={() => setFilter("all")}
             aria-label="Показать все мероприятия"
           >
             Участие
           </Button>
           <Button
-            className={`bg-green-900 mb-5 text-white ${filter === 'participated' ? 'bg-green-700' : 'hover:bg-green-700'}`}
-            onClick={() => setFilter('participated')}
+            className={`bg-green-900 mb-5 text-white ${filter === "participated" ? "bg-green-700" : "hover:bg-green-700"}`}
+            onClick={() => setFilter("participated")}
             aria-label="Показать мероприятия, в которых участвовал"
           >
             Участвовал
           </Button>
           <Button
-            className={`bg-green-900 text-white ${filter === 'past' ? 'bg-green-700' : 'hover:bg-green-700'}`}
-            onClick={() => setFilter('past')}
+            className={`bg-green-900 text-white ${filter === "past" ? "bg-green-700" : "hover:bg-green-700"}`}
+            onClick={() => setFilter("past")}
             aria-label="Показать прошедшие мероприятия"
           >
             Прошедшие мероприятия
