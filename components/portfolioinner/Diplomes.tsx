@@ -218,7 +218,7 @@ const Diplomes = ({ diplomas = [] }: DiplomesProps) => {
                 className="object-contain"
               />
               {/* Текст поверх изображения */}
-              <div className="absolute bottom-4 left-4 right-4 bg-black bg-opacity-50 text-white p-4 rounded-lg">
+              <div className="absolute bottom-4 left-4 right-4 bg-green-800 bg-opacity-50 text-white p-4 rounded-lg">
                 <h3 className="text-xl font-semibold">{selectedDiploma.title}</h3>
                 <p className="text-sm mt-2">{selectedDiploma.description}</p>
                 <span className="text-sm block mt-1">{selectedDiploma.date}</span>
