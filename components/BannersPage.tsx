@@ -30,14 +30,14 @@ export default function BannerPage() {
               <div>
                 <Card className="p-1.5">
                   <CardContent className="flex p-0 max-h-80 object-cover relative max-w-full">
-                    <div className="dateEvent bg-green-900 p-1.5 rounded-2xl absolute top-2 left-2 text-sm font-medium text-white">
+                    <div className="dateEvent bg-green-900 p-1.5 rounded-2xl absolute top-1 border  left-240 text-sm font-medium text-white">
                       {news.date}
                     </div>
                     <Link href={`/event/news/${news.id}`}>
                       <Image
                         src={news.imageUrl}
                         alt={`Новость от ${news.date}`}
-                        className="w-full rounded-sm object-cover"
+                        className="w-full lg:h-80 rounded-sm object-cover"
                         width={1200}
                         height={400}
                       />

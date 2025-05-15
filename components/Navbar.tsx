@@ -39,13 +39,13 @@ const Navbar = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                     <DropdownMenuItem onClick={() => setTheme("light")}>
-                    Light
+                    Светлая
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => setTheme("dark")}>
-                    Dark
+                    Темная
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => setTheme("system")}>
-                    System
+                    Системная
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>           
@@ -61,12 +61,12 @@ const Navbar = () => {
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
                         <User className="h-[1.2rem] w-[1.2rem] mr-2"/>
+                        <Link href={"/lk"}>
                         Профиль
+                        </Link>
+                        
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        <Settings className="h-[1.2rem] w-[1.2rem] mr-2"/>
-                        Настройки
-                    </DropdownMenuItem>
+                    
                     <DropdownMenuItem variant="destructive">
                         <LogOut className="h-[1.2rem] w-[1.2rem] mr-2"/>
                         Выйти

@@ -14,9 +14,9 @@ export default function NewsPage() {
   }
 
   return (
-    <div className="pt-5 max-w-2xl mx-auto p-4">
+    <div className="pt-5 w-full mx-auto lg:p-4">
       <h1 className="text-3xl font-semibold text-green-900 mb-4">Новость от {news.date}</h1>
-      <Image src={news.imageUrl} alt="Новость" width={600} height={400} className="rounded-lg mb-4" />
+      <Image src={news.imageUrl} alt="Новость" width={1200} height={400} className="rounded-lg mb-4" />
       <p className="text-gray-700">{news.text}</p>
     </div>
   );

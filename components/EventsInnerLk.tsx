@@ -23,7 +23,7 @@ const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
     { id: 2, title: "Название 2", date: "2023-07-15", imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG" },
     { id: 3, title: "Название 3", date: "2025-08-15", imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG" },
     { id: 4, title: "Название 4", date: "2023-07-15", imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG" },
-    { id: 5, title: "Название 5", date: "2023-07-15", imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG" },
+    { id: 5, title: "Название 5", date: "2023-07-15", imageUrl: "https://dalgau.ru/upload/iblock/97c/uuziu2szsk1djq38u8oul1euaqx1jzs1/na-sayt-drony.jpg" },
   ];
 
   const [filter, setFilter] = useState<"all" | "participated" | "past">("all");
@@ -82,7 +82,7 @@ const EventsInnerLk = ({ events = [] }: EventsInnerLkProps) => {
                 key={event.id}
                 className="card-event-lk hover:shadow-2xl border border-green-900 rounded-lg shadow-md overflow-hidden"
               >
-                <div className="relative w-full h-48">
+                <div className="relative w-full lg:h-100 md:h-54">
                   <Image
                     src={event.imageUrl}
                     alt={`Изображение мероприятия: ${event.title}`}

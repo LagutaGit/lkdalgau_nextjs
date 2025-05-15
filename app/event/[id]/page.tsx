@@ -25,7 +25,7 @@ export default function EventDetail() {
       imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG",
       description:
         "Это описание первого мероприятия. Здесь можно рассказать о целях, формате и участниках. Мероприятие включает практические занятия и лекции от экспертов.",
-      location: "г. Москва, ул. Ленина, 10",
+      location: "г. Благовещенск, ул. Политехническая 86",
       time: "10:00 - 17:00",
     },
     {
@@ -35,7 +35,7 @@ export default function EventDetail() {
       imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG",
       description:
         "Описание второго мероприятия. Подробности о программе и спикерах. Участники получат сертификаты.",
-      location: "г. Санкт-Петербург, пр. Невский, 5",
+      location: "г. Благовещенск, ул. Политехническая 86",
       time: "14:00 - 19:00",
     },
     {
@@ -45,7 +45,7 @@ export default function EventDetail() {
       imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG",
       description:
         "Описание третьего мероприятия. Будут рассмотрены новые тренды и технологии.",
-      location: "г. Киев, ул. Крещатик, 15",
+      location: "г. Благовещенск, ул. Политехническая 86",
       time: "09:00 - 18:00",
     },
     {
@@ -55,7 +55,7 @@ export default function EventDetail() {
       imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG",
       description:
         "Описание четвёртого мероприятия. Практическая часть с акцентом на навыки.",
-      location: "г. Минск, пр. Победителей, 20",
+      location: "г. Благовещенск, ул. Политехническая 86",
       time: "13:00 - 16:00",
     },
     {
@@ -65,7 +65,7 @@ export default function EventDetail() {
       imageUrl: "https://dalgau.ru/upload/iblock/b67/22gqqa2l47wzrvh40vejd4jekmdez46n/IMG_8332.JPG",
       description:
         "Описание пятого мероприятия. Интерактивный формат с участием аудитории.",
-      location: "г. Новосибирск, ул. Горская, 7",
+      location: "г. Благовещенск, ул. Политехническая 86",
       time: "11:00 - 15:00",
     },
   ];
@@ -77,7 +77,7 @@ export default function EventDetail() {
   }
 
   return (
-    <div className="event-detail max-w-4xl mx-auto pt-8 px-4">
+    <div className="event-detail max-w-4xl mx-auto lg:pt-8 lg:px-4">
       <div className="relative w-full h-96 overflow-hidden rounded-lg shadow-md">
         <Image
           src={event.imageUrl}
@@ -90,9 +90,10 @@ export default function EventDetail() {
         <h1 className="text-3xl font-bold text-green-900">{event.title}</h1>
         <p className="text-sm text-gray-600 mt-2">{event.date}</p>
         <div className="mt-4 space-y-4">
-          <p className="text-gray-700">{event.description}</p>
+          
           <p className="text-gray-600"><strong>Место проведения:</strong> {event.location}</p>
           <p className="text-gray-600"><strong>Время:</strong> {event.time}</p>
+          <p className="text-gray-700 center">{event.description}</p>
           <Button
             className="mt-4 bg-green-900 text-white rounded-lg px-6 py-2 hover:bg-green-700 transition-colors"
             asChild

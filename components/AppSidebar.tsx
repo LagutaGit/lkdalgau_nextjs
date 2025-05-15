@@ -26,11 +26,7 @@ const items = [
     icon: Calendar,
   },
 
-  {
-    title: "Настройки",
-    url: "/settings",
-    icon: Settings,
-  },
+ 
 ]
 
 const AppSidebar = () => {
@@ -48,7 +44,7 @@ const AppSidebar = () => {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarSeparator />
+      <SidebarSeparator className="m-0" />
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Главная</SidebarGroupLabel>
@@ -68,7 +64,7 @@ const AppSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarSeparator />
+      <SidebarSeparator className="m-0" />
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -79,8 +75,12 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem>Аккаунт</DropdownMenuItem>
-                <DropdownMenuItem>Настройки</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href={"/lk"}>
+                      Аккаунт
+                  </Link>
+                  </DropdownMenuItem>
+
                 <DropdownMenuItem variant="destructive">Выход</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

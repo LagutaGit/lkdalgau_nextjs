@@ -17,7 +17,7 @@ const News = () => {
               <Image
                 src={news.imageUrl}
                 alt="Новость"
-                className="lg:w-[480px] lg:h-60 object-cover rounded-2xl"
+                className="lg:w-[800px] lg:h-60 object-cover rounded-2xl"
                 width={1200}
                 height={400}
               />
