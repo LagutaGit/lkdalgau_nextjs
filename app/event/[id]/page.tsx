@@ -98,7 +98,7 @@ export default function EventDetail() {
             className="mt-4 bg-green-900 text-white rounded-lg px-6 py-2 hover:bg-green-700 transition-colors"
             asChild
           >
-            <Link href="/">Вернуться к списку</Link>
+            <Link href="/events">Вернуться к списку</Link>
           </Button>
         </div>
       </div>

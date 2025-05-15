@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from './ui/button';
+import { useUser } from '@/context/UserContext'; // Импортируем контекст
 
 // Интерфейс для пользователя
 interface User {
@@ -29,6 +30,7 @@ interface User {
   grade: string;
   fullName: string;
   interests: string;
+  avatarUrl?: string; // Добавляем поле для аватара
 }
 
 interface PersonalProfileProps {
@@ -36,10 +38,8 @@ interface PersonalProfileProps {
   setUser: React.Dispatch<React.SetStateAction<User>>;
 }
 
-// Компонент для управления видимостью текста
 const ToggleVisibility = ({ label, children }: { label: React.ReactElement; children: string }) => {
   const [isVisible, setIsVisible] = useState(true);
-
   return (
     <div className="flex items-center gap-2">
       {label && <span className="mr-2">{label}</span>}
@@ -56,8 +56,11 @@ const ToggleVisibility = ({ label, children }: { label: React.ReactElement; chil
 
 const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
   const alerttt = () => {
-    alert('ssss');
+    alert('ssss'); // Заглушка, замените на логику обновления аватара
   };
+
+  // Используем fallback, если avatarUrl отсутствует
+  const avatarSrc = user.avatarUrl || '/projects/banner-1.jpg';
 
   return (
     <div className="w-full">
@@ -70,7 +73,7 @@ const PersonalProfile = ({ user, setUser }: PersonalProfileProps) => {
             </button>
           </div>
           <Image
-            src="/projects/banner-1.jpg"
+            src={avatarSrc}
             alt="Левое изображение профиля"
             fill
             className="rounded-2xl object-cover"

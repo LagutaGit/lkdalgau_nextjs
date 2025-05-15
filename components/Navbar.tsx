@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { LogOut, Moon, Settings, Sun, User } from "lucide-react"
 import Link from "next/link"
@@ -10,14 +10,16 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 import { Button } from "./ui/button"
 import { useTheme } from "next-themes"
 import { SidebarTrigger } from "./ui/sidebar"
 import Search from "./Search"
+import { useUser } from "@/context/UserContext" // Импортируем контекст
 
 const Navbar = () => {
-    const {theme, setTheme} = useTheme();
+    const { theme, setTheme } = useTheme();
+    const { user } = useUser(); // Получаем данные пользователя из контекста
 
     return (
       <nav className="p-4 flex items-center justify-between">
@@ -52,8 +54,8 @@ const Navbar = () => {
             <DropdownMenu>
                 <DropdownMenuTrigger>
                     <Avatar>
-                        <AvatarImage src="https://github.com/shadcn.png" />
-                        <AvatarFallback>CN</AvatarFallback>
+                        <AvatarImage src={user.avatarUrl || "https://github.com/shadcn.png"} />
+                        <AvatarFallback>{user.fullName ? user.fullName[0] : "CN"}</AvatarFallback>
                     </Avatar>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent sideOffset={10}>
@@ -64,22 +66,17 @@ const Navbar = () => {
                         <Link href={"/lk"}>
                         Профиль
                         </Link>
-                        
                     </DropdownMenuItem>
-                    
                     <DropdownMenuItem variant="destructive">
                         <LogOut className="h-[1.2rem] w-[1.2rem] mr-2"/>
                         Выйти
                     </DropdownMenuItem>
-                    
                 </DropdownMenuContent>
             </DropdownMenu>
            </div>
-            
         </div>
-        
       </nav>
     )
-  }
-  
+}
+
 export default Navbar

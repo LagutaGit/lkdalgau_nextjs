@@ -34,7 +34,22 @@ export default function Lk() {
     interests: 'Чтение, Спорт, Программирование',
   });
 
-  const [events, setEvents] = useState<EventItem[]>([]);
+  
+
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const response = await fetch("/api/events");
+      if (response.ok) {
+        const data = await response.json();
+        setEvents(data);
+      } else {
+        console.error("Ошибка загрузки данных");
+      }
+    };
+    fetchEvents();
+  }, []);
 
   //useEffect(() => {
   //  const fetchData = async () => {
