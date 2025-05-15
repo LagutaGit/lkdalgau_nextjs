@@ -62,7 +62,7 @@ const Events = () => {
                   width={1200}
                   height={350}
                   alt={`Изображение мероприятия: ${event.title}`}
-                  className="rounded-sm"
+                  className="rounded-sm w-full"
                   src={event.imageUrl}
                 />
               </CardHeader>
@@ -82,7 +82,13 @@ const Events = () => {
                   className="bg-green-800 text-white cursor-pointer"
                   aria-label="Подать заявку на мероприятие"
                 >
-                  Подать заявку
+                    <Link
+                  href={`/event/${event.id}`}
+                  className="text cursor-pointer hover:underline"
+                >
+                  {event.title}
+                </Link>
+                  
                 </Button>
               </CardFooter>
             </Card>
