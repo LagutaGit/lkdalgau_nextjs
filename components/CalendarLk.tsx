@@ -129,7 +129,7 @@ const CalendarLk = () => {
                   className={`size-6 sm:size-8 md:size-10 p-0 font-normal flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors ${ // Добавил: Hover-эффект и transition для дней без событий
                     isSelected ? 'bg-primary text-primary-foreground' : ''
                   }`}
-                  onClick={() => props.onClick?.()} // Изменил: Вызов props.onClick() без date (в DayProps onClick не принимает аргументы; date уже известен внутри)
+                  onClick={() => props.onClick?.()} 
                 >
                   {date.getDate()}
                 </button>
