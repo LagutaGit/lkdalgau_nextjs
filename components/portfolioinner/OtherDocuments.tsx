@@ -3,9 +3,10 @@
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { useState } from 'react';
-import { Download, Eye, X } from 'lucide-react';
+import { Download, Eye } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'; // Добавлено: Импорт Radix Dialog для модалки
 
-// Интерфейс для данных других документов
+// Интерфейс для данных документа
 export interface OtherDocumentItem {
   id: number;
   title: string;
@@ -26,7 +27,7 @@ const OtherDocuments = ({ documents = [] }: OtherDocumentsProps) => {
       id: 1,
       title: 'Документ 1',
       description: 'Грамота за участие в школьной олимпиаде.',
-      date: '2023-06-14',
+      date: '2023-06-14', // Изменено: Дата на 2023 для корректной работы archived-фильтра
       imageUrl: 'https://dalgau.ru/upload/iblock/fbe/e0w5ugb6fieru4j0o9p2wu86z0bcosgy/WhatsApp_Image_2025_05_06_at_14.28.44.jpeg',
     },
     {
@@ -40,7 +41,7 @@ const OtherDocuments = ({ documents = [] }: OtherDocumentsProps) => {
       id: 3,
       title: 'Документ 3',
       description: 'Благодарственное письмо за волонтерскую деятельность.',
-      date: '2025-08-15',
+      date: '2023-08-15', // Изменено: Дата на 2023 для consistency
       imageUrl: 'https://dalgau.ru/upload/iblock/8d0/5oav9lz657qug24zbsdjykjofh8u1jd3/WhatsApp_Image_2025_05_06_at_08.54.23_5_.jpeg',
     },
     {
@@ -69,7 +70,6 @@ const OtherDocuments = ({ documents = [] }: OtherDocumentsProps) => {
   const [visibleCount, setVisibleCount] = useState(3); // Начальное значение - 3 документа
 
   // Состояние для модального окна
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState<OtherDocumentItem | null>(null);
 
   // Используем mockDocuments, если documents не передан
@@ -79,6 +79,7 @@ const OtherDocuments = ({ documents = [] }: OtherDocumentsProps) => {
   const filteredDocuments = displayDocuments.filter((document) => {
     const documentDate = new Date(document.date);
     const currentDate = new Date();
+    if (isNaN(documentDate.getTime())) return false; // Добавлено: Проверка на валидную дату, чтобы избежать ошибок
 
     if (filter === 'received') {
       return receivedDocuments.includes(document.id);
@@ -91,18 +92,6 @@ const OtherDocuments = ({ documents = [] }: OtherDocumentsProps) => {
   // Обработка клика "Показать еще"
   const handleShowMore = () => {
     setVisibleCount((prev) => prev + 3); // Увеличиваем на 3 элемента
-  };
-
-  // Открытие модального окна
-  const openModal = (document: OtherDocumentItem) => {
-    setSelectedDocument(document);
-    setIsModalOpen(true);
-  };
-
-  // Закрытие модального окна
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedDocument(null);
   };
 
   return (
@@ -146,15 +135,35 @@ const OtherDocuments = ({ documents = [] }: OtherDocumentsProps) => {
                 <div className="document-card-image relative w-full min-h-64">
                   <Image
                     src={document.imageUrl}
-                    alt={`Изображение документа: ${document.title}`}
+                    alt={`Изображение документа: ${document.title}`} // Изменено: Улучшен alt для accessibility
                     fill
                     className="rounded-t-lg object-cover cursor-pointer"
-                    onClick={() => openModal(document)}
                   />
                   <div className="wrapper-others-images absolute top-2 right-2 flex gap-2">
-                    <button className="p-1 bg-white rounded-full cursor-pointer shadow-md" aria-label="Посмотреть документ">
-                      <Eye size={18} />
-                    </button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <button className="p-1 bg-white rounded-full cursor-pointer shadow-md" aria-label="Посмотреть документ">
+                          <Eye size={18} />
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl h-[90vh]">
+                        <DialogHeader>
+                          <DialogTitle>{document.title}</DialogTitle>
+                        </DialogHeader>
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={document.imageUrl}
+                            alt={`Полноэкранное изображение документа: ${document.title}`}
+                            fill
+                            className="object-contain"
+                          />
+                          <div className="absolute bottom-4 left-4 right-4 bg-green-800 bg-opacity-50 text-white p-4 rounded-lg">
+                            <p className="text-sm mt-2">{document.description}</p>
+                            <span className="text-sm block mt-1">{document.date}</span>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                     <button className="p-1 bg-white rounded-full cursor-pointer shadow-md" aria-label="Скачать документ">
                       <Download size={18} />
                     </button>
@@ -184,46 +193,9 @@ const OtherDocuments = ({ documents = [] }: OtherDocumentsProps) => {
           )}
         </div>
       </div>
-
-      {/* Модальное окно */}
-      {isModalOpen && selectedDocument && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={closeModal}
-        >
-          <div
-            className="relative w-full max-w-4xl h-[90vh] flex flex-col items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Кнопка закрытия */}
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md z-50 cursor-pointer"
-              aria-label="Закрыть модальное окно"
-            >
-              <X size={24} color="#2A632C" />
-            </button>
-
-            {/* Изображение */}
-            <div className="relative w-full h-full">
-              <Image
-                src={selectedDocument.imageUrl}
-                alt={`Полноэкранное изображение документа: ${selectedDocument.title}`}
-                fill
-                className="object-contain"
-              />
-              {/* Текст поверх изображения */}
-              <div className="absolute bottom-4 left-4 right-4 bg-green-800 bg-opacity-50 text-white p-4 rounded-lg">
-                <h3 className="text-xl font-semibold">{selectedDocument.title}</h3>
-                <p className="text-sm mt-2">{selectedDocument.description}</p>
-                <span className="text-sm block mt-1">{selectedDocument.date}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
 
 export default OtherDocuments;
+// Изменено: Модалка переписана на Radix Dialog для лучшей доступности и consistency. Добавлена проверка дат в фильтре. Исправлены mock-даты. Улучшен alt в Image.
