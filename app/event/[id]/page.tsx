@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import type { EventItem } from "@/data/eventsData";
 
 // Расширенный интерфейс для детальной информации
 export interface EventDetailItem extends EventItem {

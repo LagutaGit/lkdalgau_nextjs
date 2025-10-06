@@ -1,15 +1,7 @@
 // data/eventsData.ts
 
 // Определяем интерфейс для базовой структуры мероприятия
-export interface EventItem {
-    id: number;
-    title: string;
-    date: string;
-    imageUrl: string;
-    description?: string; // Опциональное поле
-    location?: string;    // Опциональное поле
-    time?: string;        // Опциональное поле
-  }
+import type { EventItem } from "@/types/event";
   
   // Массив данных о мероприятиях
   export const eventsData: EventItem[] = [

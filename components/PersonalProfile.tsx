@@ -17,6 +17,7 @@ import {
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { useUser } from "@/context/UserContext";
+import type { User } from "@/types/user";
 import {
   Dialog,
   DialogContent,
@@ -25,22 +26,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"; // Импортируем Dialog из shadcn
 import { Input } from "@/components/ui/input"; // Для загрузки файла
-
-// Интерфейс для пользователя
-interface User {
-  points: string;
-  age: string;
-  city: string;
-  phone: string;
-  email: string;
-  education: string;
-  school: string;
-  grade: string;
-  fullName: string;
-  interests: string;
-  avatarUrl?: string; // Добавляем поле для аватара
-  rightImageUrl?: string; // Добавляем поле для правого изображения
-}
 
 interface PersonalProfileProps {
   user: User;
