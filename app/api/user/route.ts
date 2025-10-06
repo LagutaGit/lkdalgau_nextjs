@@ -21,3 +21,15 @@ export async function GET() {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
+
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    // В реальном приложении здесь должна быть валидация и сохранение
+    // Сейчас просто эхо-ответ с тем, что прислали
+    return NextResponse.json(body, { status: 200 });
+  } catch (error) {
+    console.error('Error updating user data:', error);
+    return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
+  }
+}

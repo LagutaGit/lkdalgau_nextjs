@@ -4,14 +4,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import React, { useState } from "react";
 import Link from "next/link";
-
-// Экспортируем интерфейс
-export interface EventItem {
-  id: number;
-  title: string;
-  date: string;
-  imageUrl: string;
-}
+import type { EventItem } from "@/types/event";
 
 interface EventsInnerLkProps {
   events?: EventItem[];

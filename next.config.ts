@@ -1,12 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-
-};
-module.exports = {
   images: {
-    domains: ["dalgau.ru", "avatars.mds.yandex.net", "get.wallhere.com", "example.com"], // Разрешаем изображения с этого домена
+    remotePatterns: [
+      { protocol: "https", hostname: "dalgau.ru" },
+      { protocol: "https", hostname: "avatars.mds.yandex.net" },
+      { protocol: "https", hostname: "get.wallhere.com" },
+      { protocol: "https", hostname: "example.com" },
+    ],
   },
 };
 

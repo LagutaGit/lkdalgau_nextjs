@@ -1,8 +1,10 @@
+"use client"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, ChevronUp, Home, User, Inbox, Search, Settings, User2 } from "lucide-react"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "./ui/sidebar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
+import { useUser } from "@/context/UserContext"
 
 const items = [
   {
@@ -30,12 +32,13 @@ const items = [
 ]
 
 const AppSidebar = () => {
+  const { user } = useUser();
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="py-4">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton className="h-15" asChild>
+            <SidebarMenuButton className="h-16" asChild>
               <Link href="/">
                 <Image className="pb-0" src="/images/logoDalgau.svg" alt="logo" width={20} height={20} />
                 <span className="pl-5">Личный кабинет <br /> абитуриента</span>
@@ -71,7 +74,7 @@ const AppSidebar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild className="pb-0">
                 <SidebarMenuButton>
-                  <User2 /> Иван Иванов <ChevronUp className="ml-auto" />
+                  <User2 /> {user?.fullName || "Гость"} <ChevronUp className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">

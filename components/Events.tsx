@@ -77,10 +77,6 @@ const Events = () => {
                     alt={`Изображение мероприятия: ${event.title}`}
                     className="rounded-sm object-cover"
                     src={event.imageUrl}
-                    // Добавил: Fallback на случай, если URL сломан (показывает серый placeholder)
-                    onError={(e) => {
-                      e.currentTarget.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88v5dDwABYwLTwAAAABJRU5ErkJggg==';
-                    }}
                     placeholder="blur"
                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88v5dDwABYwLTwAAAABJRU5ErkJggg==" // Базовый blur-placeholder
                   />

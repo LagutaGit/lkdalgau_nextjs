@@ -1,27 +1,7 @@
 'use client';
 
 import { createContext, useState, useContext, useEffect, ReactNode } from 'react';
-
-interface User {
-  points: string;
-  age: string;
-  city: string;
-  phone: string;
-  email: string;
-  education: string;
-  school: string;
-  grade: string;
-  fullName: string;
-  interests: string;
-  avatarUrl?: string; // Добавлено для синхронизации изображения
-}
-
-interface UserContextType {
-  user: User;
-  setUser: React.Dispatch<React.SetStateAction<User>>;
-  loading: boolean;
-  updateUser: (newUserData: Partial<User>) => Promise<void>;
-}
+import type { User, UserContextType } from '@/types/user';
 
 const defaultUser: User = {
   points: '0',
